@@ -11,6 +11,9 @@ export const getStaticPaths = () => {
       { params: { id: '3' } },
     ],
     fallback: true,
+    // false : paths에 등록하지 않은 경우 404 not found 페이지로 읻오
+    // blocking : ssr 방식
+    // true : ssr 방식 + 데이터가 없는 fallback 상태의 페이지부터 반환
   };
 };
 
