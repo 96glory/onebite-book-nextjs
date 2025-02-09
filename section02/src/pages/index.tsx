@@ -30,6 +30,7 @@ export const getStaticProps = async () => {
 
   return {
     props: { allBooks, recommandBooks },
+    revalidate: 3, // ISR 방식 : 3초마다 static 페이지를 새로 생성함
   };
 };
 
