@@ -6,6 +6,7 @@ import style from './layout.module.css';
 async function Footer() {
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_API_SERVER_URL}/book`,
+    { cache: 'force-cache' },
   );
 
   if (!response.ok) {
