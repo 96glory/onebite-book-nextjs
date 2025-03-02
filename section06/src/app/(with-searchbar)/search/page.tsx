@@ -12,9 +12,9 @@ async function SearchResult({ q }: { q: string }) {
     { cache: 'force-cache' },
   );
 
-  if (!response.ok) {
-    return <div>오류가 발생했습니다 ...</div>;
-  }
+  // if (!response.ok) {
+  //   return <div>오류가 발생했습니다 ...</div>;
+  // }
 
   const books: BookData[] = await response.json();
 
