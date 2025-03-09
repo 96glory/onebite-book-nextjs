@@ -8,8 +8,20 @@ import style from './page.module.css';
 
 // export const dynamicParams = false; // generateStaticParams 내 값만 허용하고 싶을 때 false로 설정
 
-export function generateStaticParams() {
-  return [{ id: '1' }, { id: '2' }, { id: '3' }];
+export async function generateStaticParams() {
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_API_SERVER_URL}/book`,
+  );
+
+  if (!response.ok) {
+    throw new Error(response.statusText);
+  }
+
+  const books: BookData[] = await response.json();
+
+  return books.map((book) => {
+    id: book.id.toString();
+  });
 }
 
 async function BookDetail({ id }: { id: string }) {
