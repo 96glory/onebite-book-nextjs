@@ -1,6 +1,7 @@
 import ReviewEditor from '@/components/review-editor';
 import ReviewItem from '@/components/review-item';
 import { ReviewData } from '@/types';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import style from './page.module.css';
 
@@ -33,7 +34,7 @@ async function BookDetail({ id }: { id: string }) {
         className={style.cover_img_container}
         style={{ backgroundImage: `url('${coverImgUrl}')` }}
       >
-        <img src={coverImgUrl} />
+        <Image src={coverImgUrl} width={240} height={300} alt={title} />
       </div>
       <div className={style.title}>{title}</div>
       <div className={style.subTitle}>{subTitle}</div>
