@@ -1,6 +1,7 @@
 import BookItem from '@/components/book-item';
 import BookListSkeleton from '@/components/skeleton/book-list-skeleton';
 import { BookData } from '@/types';
+import { Metadata } from 'next';
 import { Suspense } from 'react';
 import style from './page.module.css';
 
@@ -12,6 +13,16 @@ import style from './page.module.css';
  * 4) error : 페이지를 강제로 static 페이지로 설정, static으로 설정하면 안되는 이유가 있을 때 build error
  */
 export const dynamic = 'force-dynamic';
+
+export const metadata: Metadata = {
+  title: '한입 북스',
+  description: '한입 북스에 등록된 도서를 만나보세요',
+  openGraph: {
+    title: '한입 북스',
+    description: '한입 북스에 등록된 도서를 만나보세요',
+    images: ['/thumbnail.png'],
+  },
+};
 
 async function AllBooks() {
   // await delay(1500);
